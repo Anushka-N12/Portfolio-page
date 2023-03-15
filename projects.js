@@ -23,10 +23,13 @@ function firstProject ()  {
 firstProject()
 
 function nextWCheck ()  {
+    if (count==-1)  {
+        count=count+2
+    }
     if (count < imgs.length)  {
         nextProject()
     }
-    else if (count >= imgs.length)  {
+    else  {
         firstProject()
     }
     console.log('Changed')
@@ -37,6 +40,7 @@ function backProject ()  {
     document.getElementById('img').src = imgs[count]
     document.getElementById('title').innerText = titles[count]
     document.getElementById('desc').innerText = descs[count]
+    document.getElementById('number').innerText = String(count+1)+'/'+String(imgs.length)
     count -= 1
     return
 }
@@ -47,10 +51,13 @@ function lastProject ()  {
     return
 }
 function backWCheck ()  {
+    if (count==imgs.length)  {
+        count=count-2
+    }
     if (count >= 0)  {
         backProject()
     }
-    else if (count = imgs.length-1)  {
+    else  {
         lastProject()
     }
     console.log('Changed')
